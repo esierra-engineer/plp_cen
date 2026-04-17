@@ -1,0 +1,36 @@
+Performing Fortran SOURCE FILE Test FORTRAN_SUPPORTS_NO_COMPARE_REALS succeded with the following output:
+Change Dir: '/home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_864b0/fast
+/usr/bin/gmake  -f CMakeFiles/cmTC_864b0.dir/build.make CMakeFiles/cmTC_864b0.dir/build
+gmake[1]: Entering directory '/home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_864b0.dir/src.f90.o
+/usr/bin/f95   -DFORTRAN_SUPPORTS_NO_COMPARE_REALS   -Wno-compare-reals -c /home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp/src.f90 -o CMakeFiles/cmTC_864b0.dir/src.f90.o
+Linking Fortran executable cmTC_864b0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_864b0.dir/link.txt --verbose=1
+/usr/bin/f95  -DFORTRAN_SUPPORTS_NO_COMPARE_REALS CMakeFiles/cmTC_864b0.dir/src.f90.o -o cmTC_864b0
+gmake[1]: Leaving directory '/home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+program main
+end program
+
+Performing Fortran SOURCE FILE Test FORTRAN_SUPPORTS_OPENMP succeded with the following output:
+Change Dir: '/home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9f100/fast
+/usr/bin/gmake  -f CMakeFiles/cmTC_9f100.dir/build.make CMakeFiles/cmTC_9f100.dir/build
+gmake[1]: Entering directory '/home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_9f100.dir/src.f90.o
+/usr/bin/f95   -pipe -fdump-core -fbacktrace -fcheck=all  -cpp -fno-sign-zero -ffree-form -ffree-line-length-none -fimplicit-none -frecursive -W -Wall -Wextra -Wuninitialized -Wunused -Wunused-but-set-variable -Wconversion -Wsurprising -Werror  -Wno-compare-reals -Wno-character-truncation  -Wno-unused-parameter  -DFORTRAN_SUPPORTS_OPENMP   -fopenmp -c /home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp/src.f90 -o CMakeFiles/cmTC_9f100.dir/src.f90.o
+Linking Fortran executable cmTC_9f100
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f100.dir/link.txt --verbose=1
+/usr/bin/f95  -pipe -fdump-core -fbacktrace -fcheck=all  -cpp -fno-sign-zero -ffree-form -ffree-line-length-none -fimplicit-none -frecursive -W -Wall -Wextra -Wuninitialized -Wunused -Wunused-but-set-variable -Wconversion -Wsurprising -Werror  -Wno-compare-reals -Wno-character-truncation  -Wno-unused-parameter  -DFORTRAN_SUPPORTS_OPENMP CMakeFiles/cmTC_9f100.dir/src.f90.o -o cmTC_9f100
+gmake[1]: Leaving directory '/home/runner/work/plp_cen/plp_cen/PLPv6.3/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+program main
+end program
+
