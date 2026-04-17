@@ -1,0 +1,10 @@
+prefix=/opt/cdec-clp/
+libdir=/home/rcardenas/modelos/CLP1.16-CDEC/CoinUtils/src
+
+Name: CoinUtils
+Description: COIN-OR Utilities
+URL: https://projects.coin-or.org/CoinUtils
+Version: 2.10
+Libs: ${libdir}/libCoinUtils.la -lz -lm 
+Cflags: -I/home/rcardenas/modelos/CLP1.16-CDEC/CoinUtils/src -I/home/rcardenas/modelos/CLP1.16-CDEC/CoinUtils/src
+Requires: 

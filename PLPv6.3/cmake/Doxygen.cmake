@@ -1,0 +1,26 @@
+#
+# Docs via Doxygen
+#
+FIND_PACKAGE(Doxygen)
+IF (DOXYGEN_FOUND)
+  message(STATUS "You can generate the docs/plp directory using 'make docs'.")
+  SET(DOXYGEN_INPUT ${CMAKE_SOURCE_DIR}/docs/doxygen.inp)
+  SET(DOXYGEN_OUTPUT ${CMAKE_SOURCE_DIR}/docs/plp)
+
+  ADD_CUSTOM_COMMAND(
+    OUTPUT ${DOXYGEN_OUTPUT}
+    COMMAND ${CMAKE_COMMAND} -E echo_append "Building Documentation..."
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_INPUT}
+    COMMAND ${CMAKE_COMMAND} -E echo "Done."
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    DEPENDS ${DOXYGEN_INPUT}
+    )
+  
+  ADD_CUSTOM_TARGET(docs DEPENDS ${DOXYGEN_OUTPUT})
+  
+  ADD_CUSTOM_TARGET(docs_forced
+    COMMAND ${CMAKE_COMMAND} -E echo_append "Building Documentation..."
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_INPUT}
+    COMMAND ${CMAKE_COMMAND} -E echo "Done."
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+ENDIF (DOXYGEN_FOUND)

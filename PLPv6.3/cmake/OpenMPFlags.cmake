@@ -1,0 +1,7 @@
+CHECK_FORTRAN_COMPILER_FLAG(-fopenmp FORTRAN_SUPPORTS_OPENMP)
+if(FORTRAN_SUPPORTS_OPENMP)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fopenmp")
+  message(STATUS "The compiler ${CMAKE_Fortran_COMPILER} has OpenMP support.")
+endif()

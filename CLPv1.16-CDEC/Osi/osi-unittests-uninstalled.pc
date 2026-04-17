@@ -1,0 +1,10 @@
+prefix=/opt/cdec-clp/
+libdir=/home/rcardenas/modelos/CLP1.16-CDEC/Osi/src/OsiCommonTest
+
+Name: OsiUnitTests
+Description: COIN-OR Open Solver Interface Common Unit Tests
+URL: https://projects.coin-or.org/Osi
+Version: 0.106
+Libs: ${libdir}/libOsiCommonTests.la
+Cflags: -I/home/rcardenas/modelos/CLP1.16-CDEC/Osi/src/OsiCommonTest
+Requires: osi

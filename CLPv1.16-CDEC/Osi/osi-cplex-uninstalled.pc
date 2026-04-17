@@ -1,0 +1,10 @@
+prefix=/opt/cdec-clp/
+libdir=/home/rcardenas/modelos/CLP1.16-CDEC/Osi/src/OsiCpx
+
+Name: OsiCplex
+Description: COIN-OR Open Solver Interface for CPLEX
+URL: https://projects.coin-or.org/Osi
+Version: 0.106
+Libs: ${libdir}/libOsiCpx.la /opt/cplex/cplex/lib/x86-64_linux/static_pic/libcplex.a
+Cflags: -I/home/rcardenas/modelos/CLP1.16-CDEC/Osi/src/OsiCpx -I/opt/cplex/cplex/include/ilcplex
+Requires: osi

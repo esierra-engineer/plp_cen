@@ -1,0 +1,10 @@
+prefix=/opt/cdec-clp/
+libdir=/home/rcardenas/modelos/CLP1.16-CDEC/Osi/src/OsiGrb
+
+Name: OsiGurobi
+Description: COIN-OR Open Solver Interface for Gurobi
+URL: https://projects.coin-or.org/Osi
+Version: 0.106
+Libs: ${libdir}/libOsiGrb.la /opt/gurobi/linux64/lib/libgurobi60.so
+Cflags: -I/home/rcardenas/modelos/CLP1.16-CDEC/Osi/src/OsiGrb -I/opt/gurobi/linux64/include
+Requires: osi
