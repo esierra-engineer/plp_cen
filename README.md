@@ -495,7 +495,7 @@ CenQgen,CenPgen,CenEgen,CenInyP,CenInyE,CenRen,CenCVar,CenCostOp,CenPMax
 | `CenTip` | — | Plant-type code (`E`=reservoir, `S`=series, `P`=pasada, `T`=thermal, `B`=battery, etc.) |
 | `CenBar` | — | Connected bus index |
 | `BarNom` | — | Bus name |
-| `CenQgen` | m³/s | Water flow (turbine discharge); equals generation for thermal plants |
+| `CenQgen` | m³/s | Turbine discharge flow for hydraulic plants. For thermal/wind/solar plants this slot holds the LP variable value (which maps to power, not a physical water flow) and should be interpreted as a dimensionless dispatch variable |
 | `CenPgen` | MW | Active power generation |
 | `CenEgen` | GWh | Energy generated in block (`CenPgen × Ren × BloDur × 10⁻³`) |
 | `CenInyP` | MW·($/MWh) | Value injection (power × marginal cost) |
@@ -527,7 +527,7 @@ Hidro, IBlo, CostoOperActual
 |---|---|---|
 | `Hidro` | — | Simulation ID |
 | `IBlo` | — | Block index |
-| `CostoOperActual` | k$ | Sum of `CenPGen × CenCVar × BloDur / FPhi` across all plants |
+| `CostoOperActual` | k$ | Sum of `CenPGen × CenCVar × BloDur / FPhi` across all plants, where `FPhi` is the per-stage discount factor read from `plpeta.dat` (Tasa column; 1.0 = no discounting) |
 
 ---
 
@@ -539,7 +539,7 @@ Hidro,Bloque,TipoEtapa,BarNum,BarNom,CMgBar,DemBarP,DemBarE,PerBarP,PerBarE,BarR
 
 | Column | Units | Description |
 |---|---|---|
-| `CMgBar` | $/MWh | Marginal cost at this bus, discount-factor adjusted (`CMg × FPhi`) |
+| `CMgBar` | $/MWh | Marginal cost at this bus, multiplied by the stage discount factor `FPhi` (from `plpeta.dat`) to give the present-value equivalent nodal price |
 | `DemBarP` | MW | Bus demand (power) |
 | `DemBarE` | GWh | Bus energy demand (`DemBarP × BloDur × 10⁻³`) |
 | `PerBarP` | MW | Demand not served (loss-of-load, power) |
@@ -587,8 +587,8 @@ EmbQgen,EmbQver,EmbQdef,EmbPsom,EmbPsom2,EmbAflu,EmbQFil,EmbQReb
 | `EmbQgen` | MW | Hydraulic generation (turbine power) |
 | `EmbQver` | m³/s | Spillage |
 | `EmbQdef` | m³/s | Deficiency/shortage flow |
-| `EmbPsom` | $/MWh | Shadow price of water converted to energy value |
-| `EmbPsom2` | $/Hm³ | Water shadow price in volume terms |
+| `EmbPsom` | $/MWh | Water shadow price expressed in energy terms: `CMg_water × FPhi × FactTiempo / FactRendim`, where `FactRendim` is the aggregate hydraulic efficiency of the downstream chain. Represents the opportunity cost of storing one unit of water in terms of future energy value |
+| `EmbPsom2` | $/Hm³ | Water shadow price in volume terms: `CMg_water × FPhi` directly (without dividing by efficiency) |
 | `EmbAflu` | m³/s | Natural inflow (from stochastic RHS) |
 | `EmbQFil` | m³/s | Filtered outflow |
 | `EmbQReb` | m³/s | Rebound flow |
