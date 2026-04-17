@@ -45,7 +45,7 @@ PLP links through COIN-OR OSI. You can run with:
 ### 2.1 Build CLP (bundled)
 
 ```bash
-cd /home/runner/work/plp_cen/plp_cen/CLPv1.16-CDEC
+cd <repo_root>/CLPv1.16-CDEC
 ./configure --prefix=/opt/coinor
 make -j"$(nproc)"
 make install
@@ -56,7 +56,7 @@ make install
 If you will use CPLEX/GUROBI through OSI, build OSI with the corresponding solver installed first.
 
 ```bash
-cd /home/runner/work/plp_cen/plp_cen/OSI-CDECv1.2/rev_0_106_20140630
+cd <repo_root>/OSI-CDECv1.2/rev_0_106_20140630
 ./configure --prefix=/opt/coinor
 make -j"$(nproc)"
 make install
@@ -81,7 +81,7 @@ Practical recommendation:
 
 ### CLP backend
 ```bash
-cd /home/runner/work/plp_cen/plp_cen/PLPv6.3
+cd <repo_root>/PLPv6.3
 cmake -S . -B build-clp \
   -DCOIN_ROOT_DIR=/opt/coinor \
   -DCOIN_USE_CLP=ON -DCOIN_USE_CPX=OFF -DCOIN_USE_GRB=OFF \
@@ -91,7 +91,7 @@ cmake --build build-clp -j"$(nproc)"
 
 ### CPLEX backend
 ```bash
-cd /home/runner/work/plp_cen/plp_cen/PLPv6.3
+cd <repo_root>/PLPv6.3
 cmake -S . -B build-cpx \
   -DCOIN_ROOT_DIR=/opt/coinor \
   -DCPLEX_ROOT_DIR=/opt/cplex/cplex \
@@ -102,7 +102,7 @@ cmake --build build-cpx -j"$(nproc)"
 
 ### GUROBI backend
 ```bash
-cd /home/runner/work/plp_cen/plp_cen/PLPv6.3
+cd <repo_root>/PLPv6.3
 cmake -S . -B build-grb \
   -DCOIN_ROOT_DIR=/opt/coinor \
   -DGUROBI_ROOT_DIR=/opt/gurobi \
@@ -123,7 +123,7 @@ Typical production pattern:
 Example:
 ```bash
 cd /path/to/scenario_with_dat_files
-/home/runner/work/plp_cen/plp_cen/run_plp.sh
+<repo_root>/run_plp.sh
 ```
 
 `run_plp.sh` exports runtime environment flags (cuts, scaling, irrigation conventions, tolerances, parallel mode) and then executes the configured PLP binary.
@@ -247,4 +247,3 @@ This documentation is intended to support upcoming engineering sessions focused 
 - accelerating heavy kernels (including CUDA-capable paths where applicable)
 - reducing technical debt in old solver interfaces
 - improving portability (including eventual Windows support)
-
